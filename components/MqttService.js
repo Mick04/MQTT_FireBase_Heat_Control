@@ -148,25 +148,25 @@ class MqttService {
       messageAM.destinationName = "amTemperature";
       messageAM.retained = true;
       this.client.send(messageAM);
-      set(ref(database, "setTime/amTemperature"), amTemperature); // Store data in Firebase
+      set(ref(database, "setTime/F_B_amTemperature"), amTemperature); // Store data in Firebase
 
       const messagePM = new Paho.Message(String(pmTemperature || "0"));
       messagePM.destinationName = "pmTemperature";
       messagePM.retained = true;
       this.client.send(messagePM);
-      set(ref(database, "setTime/pmTemperature"), pmTemperature); // Store data in Firebase
+      set(ref(database, "setTime/F_B_pmTemperature"), pmTemperature); // Store data in Firebase
 
       const messageAMTime = new Paho.Message(String(AMtime || "00:00"));
       messageAMTime.destinationName = "AMtime";
       messageAMTime.retained = true;
       this.client.send(messageAMTime);
-      set(ref(database, "setTime/AMtime"), AMtime); // Store data in Firebase
+      set(ref(database, "setTime/F_B_AMtime"), AMtime); // Store data in Firebase
 
       const messagePMTime = new Paho.Message(String(PMtime || "00:00"));
       messagePMTime.destinationName = "PMtime";
       messagePMTime.retained = true;
       this.client.send(messagePMTime);
-      set(ref(database, "setTime/PMtime"), PMtime); // Store data in Firebase
+      set(ref(database, "setTime/F_B_PMtime"), PMtime); // Store data in Firebase
     } catch (err) {
       // console.log("MQTTServices line 108 Failed to send messages: ", err);
     }
